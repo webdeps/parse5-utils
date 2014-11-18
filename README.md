@@ -37,6 +37,8 @@ var utils = require('parse5-utils')
 
 ### node = utils.replace(originalNode, newNode)
 
+### node = utils.remove(node)
+
 [npm-image]: https://img.shields.io/npm/v/parse5-utils.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/parse5-utils
 [github-tag]: http://img.shields.io/github/tag/webdeps/parse5-utils.svg?style=flat-square

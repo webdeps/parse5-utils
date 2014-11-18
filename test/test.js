@@ -76,3 +76,11 @@ describe('.replace(original, node)', function () {
     assert.equal(utils.stringify(frag), '<script>a && b</script>')
   })
 })
+
+describe('.remove(node)', function () {
+  it('should remove a node', function () {
+    var frag = utils.parseFragment('<div><a></a></div>')
+    utils.remove(frag.childNodes[0])
+    assert.equal(utils.stringify(frag), '')
+  })
+})

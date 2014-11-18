@@ -14,7 +14,7 @@ exports.parseFragment = function (string) {
   return parser.parseFragment(string)
 }
 
-exports.stringify = 
+exports.stringify =
 exports.serialize = function (node) {
   return serializer.serialize(node)
 }
@@ -81,5 +81,12 @@ exports.replace = function (original, node) {
   if (!~index) return
   node.parentNode = original.parentNode
   children.splice(index, 1, node)
+  return node
+}
+
+exports.remove = function (node) {
+  var children = node.parentNode.childNodes
+  var index = children.indexOf(node)
+  if (~index) children.splice(index, 1)
   return node
 }
