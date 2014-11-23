@@ -100,3 +100,18 @@ describe('.remove(node)', function () {
     assert.equal(utils.stringify(frag), '')
   })
 })
+
+describe('.textOf(node)', function () {
+  it('should return the text of the node', function () {
+    var frag = utils.parseFragment('<div>haha</div>')
+    assert.equal(utils.textOf(frag.childNodes[0]), 'haha')
+  })
+})
+
+describe('.setText(node)', function () {
+  it('should set the text of the node', function () {
+    var frag = utils.parseFragment('<div>1</div>')
+    utils.setText(frag.childNodes[0], 'lol')
+    assert.equal(utils.stringify(frag), '<div>lol</div>')
+  })
+})

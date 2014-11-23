@@ -1,4 +1,5 @@
 
+var assert = require('assert')
 var parse5 = require('parse5')
 
 var namespaceURI = 'http://www.w3.org/1999/xhtml'
@@ -107,5 +108,19 @@ exports.remove = function (node) {
   var children = node.parentNode.childNodes
   var index = children.indexOf(node)
   if (~index) children.splice(index, 1)
+  return node
+}
+
+exports.textOf = function (node) {
+  var childNodes = node.childNodes
+  if (!childNodes.length) return ''
+  assert.equal(childNodes.length, 1, 'wtf')
+  var child = childNodes[0]
+  assert.equal(child.nodeName, '#text')
+  return child.value || ''
+}
+
+exports.setText = function (node, text) {
+  node.childNodes = [exports.createTextNode(text || '')]
   return node
 }
