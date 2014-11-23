@@ -6,7 +6,8 @@ var namespaceURI = 'http://www.w3.org/1999/xhtml'
 var parser = exports.parser = new parse5.Parser()
 var serializer = exports.serializer = new parse5.Serializer()
 
-exports.parse = function (string) {
+exports.parse = function (string, smart) {
+  if (smart && !isDocument(string)) return exports.parseFragment(string)
   return parser.parse(string)
 }
 
@@ -123,4 +124,9 @@ exports.textOf = function (node) {
 exports.setText = function (node, text) {
   node.childNodes = [exports.createTextNode(text || '')]
   return node
+}
+
+exports.isDocument = isDocument
+function isDocument(string) {
+  return /^\s*<(!doctype|html|head|body)\b/i.test(string)
 }

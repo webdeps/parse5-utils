@@ -3,10 +3,15 @@ var assert = require('assert')
 
 var utils = require('..')
 
-describe('.parse(html)', function () {
-  it('should always return a document', function () {
+describe('.parse(html, smart)', function () {
+  it('should return a document if not smart', function () {
     var node = utils.parse('<div></div>')
     assert.equal(node.nodeName, '#document')
+  })
+
+  it('should return a fragment if smart', function () {
+    var node = utils.parse('<div></div>', true)
+    assert.equal(node.nodeName, '#document-fragment')
   })
 })
 
