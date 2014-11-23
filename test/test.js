@@ -35,6 +35,22 @@ describe('.toAttrs(obj)', function () {
   })
 })
 
+describe('.setAttribute(node, name, value)', function () {
+  it('should change an attribute', function () {
+    var frag = utils.parseFragment('<link rel="stylesheet">')
+    var node = frag.childNodes[0]
+    utils.setAttribute(node, 'rel', 'import')
+    assert.equal(utils.serialize(frag), '<link rel="import">')
+  })
+
+  it('should add an attribute', function () {
+    var frag = utils.parseFragment('<link rel="stylesheet">')
+    var node = frag.childNodes[0]
+    utils.setAttribute(node, 'href', 'file.css')
+    assert.equal(utils.serialize(frag), '<link rel="stylesheet" href="file.css">')
+  })
+})
+
 describe('.createNode(tagName)', function () {
   it('should create a node', function () {
     var frag = utils.parseFragment('')

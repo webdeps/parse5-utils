@@ -46,6 +46,25 @@ exports.toAttrs = function (obj) {
   return attrs
 }
 
+exports.setAttribute = function (node, key, value) {
+  var attrs = node.attrs = node.attrs || []
+
+  // change the attribute
+  for (var i = 0; i < attrs.length; i++) {
+    var attr = attrs[i]
+    if (attr.name !== key) continue
+    attr.value = value
+    return node
+  }
+
+  // add the attribute
+  attrs.push({
+    name: key,
+    value: value
+  })
+  return node
+}
+
 exports.createNode = function (tagName) {
   return {
     nodeName: tagName,
