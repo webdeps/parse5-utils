@@ -122,7 +122,8 @@ exports.textOf = function (node) {
 }
 
 exports.setText = function (node, text) {
-  node.childNodes = [exports.createTextNode(text || '')]
+  node.childNodes = []
+  exports.append(node, exports.createTextNode(text || ''))
   return node
 }
 
