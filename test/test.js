@@ -121,3 +121,20 @@ describe('.setText(node)', function () {
     assert.equal(utils.stringify(frag), '<div>lol</div>')
   })
 })
+
+describe('.flatten()', function () {
+  it('should flatten the node\'s descendants', function () {
+    let ast = utils.parseFragment('<div><div><div><a id="1"></a><a id="2"></div></div>')
+    let nodes = utils.flatten(ast)
+    assert(nodes.length, 6);
+    assert(nodes.some(function (node) {
+      return utils.attributesOf(node).id === '1'
+    }))
+    assert(nodes.some(function (node) {
+      return utils.attributesOf(node).id === '2'
+    }))
+    assert.equal(nodes.filter(function (node) {
+      return node.tagName === 'a'
+    }).length, 2)
+  })
+})

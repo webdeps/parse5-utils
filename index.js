@@ -30,6 +30,7 @@ exports.serialize = function (node) {
 
 exports.attributesOf = function (node) {
   let attrs = node.attrs
+  if (!attrs) return {}
   let obj = Object.create(null)
   for (let i = 0, l = attrs.length; i < l; i++) {
     let attr = attrs[i]
@@ -131,4 +132,19 @@ exports.setText = function (node, text) {
 exports.isDocument = isDocument
 function isDocument(string) {
   return /^\s*<(!doctype|html|head|body)\b/i.test(string)
+}
+
+exports.flatten = function flatten(node, arr) {
+  arr = arr || []
+
+  let children = Array.isArray(node)
+    ? node
+    : node.childNodes
+
+  for (let child of children) {
+    arr.push(child)
+    flatten(child, arr)
+  }
+
+  return arr
 }
