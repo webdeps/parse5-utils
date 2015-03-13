@@ -39,11 +39,11 @@ exports.attributesOf = function (node) {
 }
 
 exports.toAttrs = function (obj) {
-  let attrs = [];
+  let attrs = []
   Object.keys(obj).forEach(function (key) {
     attrs.push({
       name: key,
-      value: obj[key]
+      value: obj[key],
     })
   })
   return attrs
@@ -63,7 +63,7 @@ exports.setAttribute = function (node, key, value) {
   // add the attribute
   attrs.push({
     name: key,
-    value: value
+    value: value,
   })
   return node
 }
@@ -74,14 +74,14 @@ exports.createNode = function (tagName) {
     tagName: tagName,
     attrs: [],
     namespaceURI: namespaceURI,
-    childNodes: []
+    childNodes: [],
   }
 }
 
 exports.createTextNode = function (text) {
   return {
     nodeName: '#text',
-    value: text
+    value: text,
   }
 }
 
