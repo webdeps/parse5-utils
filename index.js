@@ -141,6 +141,8 @@ exports.flatten = function flatten(node, arr) {
     ? node
     : node.childNodes
 
+  if (!children) return arr
+
   for (let child of children) {
     arr.push(child)
     flatten(child, arr)
