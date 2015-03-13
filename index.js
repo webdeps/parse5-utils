@@ -1,10 +1,11 @@
+'use strict'
 
-var assert = require('assert')
-var parse5 = require('parse5')
+const assert = require('assert')
+const parse5 = require('parse5')
 
-var namespaceURI = 'http://www.w3.org/1999/xhtml'
-var parser = exports.parser = new parse5.Parser()
-var serializer = exports.serializer = new parse5.Serializer()
+const namespaceURI = 'http://www.w3.org/1999/xhtml'
+const parser = exports.parser = new parse5.Parser()
+const serializer = exports.serializer = new parse5.Serializer()
 
 exports.parse = function (string, smart) {
   if (smart && !isDocument(string)) return exports.parseFragment(string)
@@ -28,17 +29,17 @@ exports.serialize = function (node) {
  */
 
 exports.attributesOf = function (node) {
-  var attrs = node.attrs
-  var obj = Object.create(null)
-  for (var i = 0, l = attrs.length; i < l; i++) {
-    var attr = attrs[i]
+  let attrs = node.attrs
+  let obj = Object.create(null)
+  for (let i = 0, l = attrs.length; i < l; i++) {
+    let attr = attrs[i]
     obj[attr.name] = attr.value
   }
   return obj
 }
 
 exports.toAttrs = function (obj) {
-  var attrs = [];
+  let attrs = [];
   Object.keys(obj).forEach(function (key) {
     attrs.push({
       name: key,
@@ -49,11 +50,11 @@ exports.toAttrs = function (obj) {
 }
 
 exports.setAttribute = function (node, key, value) {
-  var attrs = node.attrs = node.attrs || []
+  let attrs = node.attrs = node.attrs || []
 
   // change the attribute
-  for (var i = 0; i < attrs.length; i++) {
-    var attr = attrs[i]
+  for (let i = 0; i < attrs.length; i++) {
+    let attr = attrs[i]
     if (attr.name !== key) continue
     attr.value = value
     return node
@@ -97,8 +98,8 @@ exports.append = function (parent, node) {
 }
 
 exports.replace = function (original, node) {
-  var children = original.parentNode.childNodes
-  var index = children.indexOf(original)
+  let children = original.parentNode.childNodes
+  let index = children.indexOf(original)
   if (!~index) return
   node.parentNode = original.parentNode
   children.splice(index, 1, node)
@@ -106,17 +107,17 @@ exports.replace = function (original, node) {
 }
 
 exports.remove = function (node) {
-  var children = node.parentNode.childNodes
-  var index = children.indexOf(node)
+  let children = node.parentNode.childNodes
+  let index = children.indexOf(node)
   if (~index) children.splice(index, 1)
   return node
 }
 
 exports.textOf = function (node) {
-  var childNodes = node.childNodes
+  let childNodes = node.childNodes
   if (!childNodes.length) return ''
   assert.equal(childNodes.length, 1, 'wtf')
-  var child = childNodes[0]
+  let child = childNodes[0]
   assert.equal(child.nodeName, '#text')
   return child.value || ''
 }
