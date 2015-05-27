@@ -17,13 +17,15 @@ Low-level parse5 node manipulation utilities.
 var utils = require('parse5-utils')
 ```
 
-### var document = utils.parse(html)
+### var document = utils.parse(html, [smart])
 
 ### var fragment = utils.parseFragment(html)
 
 ### var html = utils.serialize(document || fragment)
 
 ### var attributes = utils.attributesOf(node)
+
+### setAttribute(node, key, value)
 
 ### node.attrs = utils.toAttrs(attributes)
 
@@ -40,6 +42,10 @@ var utils = require('parse5-utils')
 ### node = utils.remove(node)
 
 ### nodes = utils.flatten(node || [nodes])
+
+### var text = utils.textOf(node)
+
+### utils.setText(node, text)
 
 [npm-image]: https://img.shields.io/npm/v/parse5-utils.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/parse5-utils
