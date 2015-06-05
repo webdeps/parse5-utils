@@ -7,7 +7,6 @@
 [![Dependency Status][david-image]][david-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
-[![Gittip][gittip-image]][gittip-url]
 
 Low-level parse5 node manipulation utilities.
 
@@ -93,5 +92,3 @@ Set the text of a node.
 [license-url]: LICENSE
 [downloads-image]: http://img.shields.io/npm/dm/parse5-utils.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/parse5-utils
-[gittip-image]: https://img.shields.io/gratipay/jonathanong.svg?style=flat-square
-[gittip-url]: https://gratipay.com/jonathanong/
