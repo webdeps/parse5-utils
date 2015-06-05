@@ -14,38 +14,70 @@ Low-level parse5 node manipulation utilities.
 ## API
 
 ```js
-var utils = require('parse5-utils')
+const utils = require('parse5-utils')
 ```
 
-### var document = utils.parse(html, [smart])
+### let document = utils.parse(html, [smart])
 
-### var fragment = utils.parseFragment(html)
+Parse an HTML string,
+If `smart`, returns a `document` or `documentFragment`, appropriately.
+Otherwise, always parses it as a document.
 
-### var html = utils.serialize(document || fragment)
+### let fragment = utils.parseFragment(html)
 
-### var attributes = utils.attributesOf(node)
+Parses HTML as a fragment.
+
+### let html = utils.serialize(document || fragment)
+
+Converts an AST into an HTML string.
+
+### let attributes = utils.attributesOf(node)
+
+Get the attributes of a node as an object.
 
 ### setAttribute(node, key, value)
 
+Set an attribute of a node.
+
 ### node.attrs = utils.toAttrs(attributes)
 
-### var node = utils.createNode(tagName)
+Set a node's attributes from an object.
 
-### var textNode = utils.createTextNode(text)
+### let node = utils.createNode(tagName)
+
+Create a node with a specific tag name.
+
+### let textNode = utils.createTextNode(text)
+
+Create a text node.
 
 ### node = utils.prepend(parent, node)
 
+Add a child to a node, making it the first child.
+
 ### node = utils.append(parent, node)
+
+Add a child to a node, making it the last child.
 
 ### node = utils.replace(originalNode, newNode)
 
+Replace a node with another node.
+
 ### node = utils.remove(node)
+
+Remove a node.
 
 ### nodes = utils.flatten(node || [nodes])
 
-### var text = utils.textOf(node)
+Get all the nodes in a tree as a flat array.
+
+### let text = utils.textOf(node)
+
+Get the text of a node.
 
 ### utils.setText(node, text)
+
+Set the text of a node.
 
 [npm-image]: https://img.shields.io/npm/v/parse5-utils.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/parse5-utils
