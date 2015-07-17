@@ -38,6 +38,10 @@ Get the attributes of a node as an object.
 
 Set an attribute of a node.
 
+### getAttribute(node, key)
+
+Get the attribute of a node.
+
 ### node.attrs = utils.toAttrs(attributes)
 
 Set a node's attributes from an object.

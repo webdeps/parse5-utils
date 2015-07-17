@@ -57,6 +57,14 @@ describe('.setAttribute(node, name, value)', function () {
   })
 })
 
+describe('.getAttribute(node, name)', function () {
+  it('should get the attribute', function () {
+    let frag = utils.parseFragment('<link rel="stylesheet">')
+    let node = frag.childNodes[0]
+    assert.equal('stylesheet', utils.getAttribute(node, 'rel'))
+  })
+})
+
 describe('.createNode(tagName)', function () {
   it('should create a node', function () {
     let frag = utils.parseFragment('')

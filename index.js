@@ -69,6 +69,14 @@ exports.setAttribute = function (node, key, value) {
   return node
 }
 
+exports.getAttribute = function (node, key) {
+  let attrs = node.attrs || []
+  for (let i = 0; i < attrs.length; i++) {
+    let attr = attrs[i]
+    if (attr.name === key) return attr.value
+  }
+}
+
 exports.createNode = function (tagName) {
   return {
     nodeName: tagName,
