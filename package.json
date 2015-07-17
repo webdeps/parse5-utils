@@ -9,12 +9,13 @@
     "parse5": "1"
   },
   "devDependencies": {
+    "eslint": "^0.24.1",
+    "eslint-config-standardberry": "^4.0.0",
     "istanbul-harmony": "0",
-    "mocha": "2",
-    "standardberry": "*"
+    "mocha": "2"
   },
   "scripts": {
-    "lint": "standardberry index.js",
+    "lint": "eslint index.js",
     "test": "mocha --reporter spec",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot",
     "test-ci": "npm run lint && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"

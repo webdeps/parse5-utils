@@ -29,18 +29,18 @@ exports.serialize = function (node) {
  */
 
 exports.attributesOf = function (node) {
-  let attrs = node.attrs
+  const attrs = node.attrs
   if (!attrs) return {}
-  let obj = Object.create(null)
-  for (let i = 0, l = attrs.length; i < l; i++) {
-    let attr = attrs[i]
+  const obj = Object.create(null)
+  for (const i = 0, l = attrs.length; i < l; i++) {
+    const attr = attrs[i]
     obj[attr.name] = attr.value
   }
   return obj
 }
 
 exports.toAttrs = function (obj) {
-  let attrs = []
+  const attrs = []
   Object.keys(obj).forEach(function (key) {
     attrs.push({
       name: key,
@@ -51,11 +51,11 @@ exports.toAttrs = function (obj) {
 }
 
 exports.setAttribute = function (node, key, value) {
-  let attrs = node.attrs = node.attrs || []
+  const attrs = node.attrs = node.attrs || []
 
   // change the attribute
-  for (let i = 0; i < attrs.length; i++) {
-    let attr = attrs[i]
+  for (const i = 0; i < attrs.length; i++) {
+    const attr = attrs[i]
     if (attr.name !== key) continue
     attr.value = value
     return node
@@ -70,9 +70,9 @@ exports.setAttribute = function (node, key, value) {
 }
 
 exports.getAttribute = function (node, key) {
-  let attrs = node.attrs || []
-  for (let i = 0; i < attrs.length; i++) {
-    let attr = attrs[i]
+  const attrs = node.attrs || []
+  for (const i = 0; i < attrs.length; i++) {
+    const attr = attrs[i]
     if (attr.name === key) return attr.value
   }
 }
@@ -107,8 +107,8 @@ exports.append = function (parent, node) {
 }
 
 exports.replace = function (original, node) {
-  let children = original.parentNode.childNodes
-  let index = children.indexOf(original)
+  const children = original.parentNode.childNodes
+  const index = children.indexOf(original)
   if (!~index) return
   node.parentNode = original.parentNode
   children.splice(index, 1, node)
@@ -116,17 +116,17 @@ exports.replace = function (original, node) {
 }
 
 exports.remove = function (node) {
-  let children = node.parentNode.childNodes
-  let index = children.indexOf(node)
+  const children = node.parentNode.childNodes
+  const index = children.indexOf(node)
   if (~index) children.splice(index, 1)
   return node
 }
 
 exports.textOf = function (node) {
-  let childNodes = node.childNodes
+  const childNodes = node.childNodes
   if (!childNodes.length) return ''
   assert.equal(childNodes.length, 1, 'wtf')
-  let child = childNodes[0]
+  const child = childNodes[0]
   assert.equal(child.nodeName, '#text')
   return child.value || ''
 }
@@ -145,13 +145,13 @@ function isDocument(string) {
 exports.flatten = function flatten(node, arr) {
   arr = arr || []
 
-  let children = Array.isArray(node)
+  const children = Array.isArray(node)
     ? node
     : node.childNodes
 
   if (!children) return arr
 
-  for (let child of children) {
+  for (const child of children) {
     arr.push(child)
     flatten(child, arr)
   }
