@@ -32,7 +32,7 @@ exports.attributesOf = function (node) {
   const attrs = node.attrs
   if (!attrs) return {}
   const obj = Object.create(null)
-  for (const i = 0, l = attrs.length; i < l; i++) {
+  for (let i = 0, l = attrs.length; i < l; i++) {
     const attr = attrs[i]
     obj[attr.name] = attr.value
   }
@@ -54,7 +54,7 @@ exports.setAttribute = function (node, key, value) {
   const attrs = node.attrs = node.attrs || []
 
   // change the attribute
-  for (const i = 0; i < attrs.length; i++) {
+  for (let i = 0; i < attrs.length; i++) {
     const attr = attrs[i]
     if (attr.name !== key) continue
     attr.value = value
