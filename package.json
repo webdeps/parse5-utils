@@ -12,7 +12,7 @@
     "eslint": "^0.24.1",
     "eslint-config-standardberry": "^4.0.0",
     "istanbul-harmony": "0",
-    "mocha": "2"
+    "mocha": "3.0.2"
   },
   "scripts": {
     "lint": "eslint index.js",
