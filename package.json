@@ -10,14 +10,14 @@
   },
   "devDependencies": {
     "istanbul-harmony": "0",
+    "jest": "^15.1.1",
     "mocha": "2",
     "standard": "^8.1.0"
   },
   "scripts": {
-    "lint": "standard --fix index.js test",
-    "test": "mocha --reporter spec",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot",
-    "test-ci": "npm run lint && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter dot"
+    "lint": "standard --fix 'lib/**/*.js'",
+    "test": "jest",
+    "test-cov": "jest --coverage"
   },
   "keywords": [
     "html",
@@ -27,6 +27,6 @@
   ],
   "main": "lib",
   "files": [
-    "index.js"
+    "lib"
   ]
 }
