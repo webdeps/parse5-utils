@@ -84,12 +84,10 @@ Set the text of a node.
 
 [npm-image]: https://img.shields.io/npm/v/parse5-utils.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/parse5-utils
-[github-tag]: http://img.shields.io/github/tag/webdeps/parse5-utils.svg?style=flat-square
-[github-url]: https://github.com/webdeps/parse5-utils/tags
-[travis-image]: https://img.shields.io/travis/webdeps/parse5-utils.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/webdeps/parse5-utils/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/webdeps/parse5-utils
-[coveralls-image]: https://img.shields.io/coveralls/webdeps/parse5-utils.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/webdeps/parse5-utils
+[coveralls-image]: https://img.shields.io/codecov/c/github/codecov/example-python/master.svg?style=flat-square
+[coveralls-url]: https://codecov.io/gh/webdeps/parse5-utils
 [david-image]: http://img.shields.io/david/webdeps/parse5-utils.svg?style=flat-square
 [david-url]: https://david-dm.org/webdeps/parse5-utils
 [license-image]: http://img.shields.io/npm/l/parse5-utils.svg?style=flat-square
