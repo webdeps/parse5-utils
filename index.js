@@ -44,7 +44,7 @@ exports.toAttrs = function (obj) {
   Object.keys(obj).forEach(function (key) {
     attrs.push({
       name: key,
-      value: obj[key],
+      value: obj[key]
     })
   })
   return attrs
@@ -64,14 +64,14 @@ exports.setAttribute = function (node, key, value) {
   // add the attribute
   attrs.push({
     name: key,
-    value: value,
+    value: value
   })
   return node
 }
 
 exports.getAttribute = function (node, key) {
   const attrs = node.attrs || []
-  for (const i = 0; i < attrs.length; i++) {
+  for (let i = 0; i < attrs.length; i++) {
     const attr = attrs[i]
     if (attr.name === key) return attr.value
   }
@@ -83,14 +83,14 @@ exports.createNode = function (tagName) {
     tagName: tagName,
     attrs: [],
     namespaceURI: namespaceURI,
-    childNodes: [],
+    childNodes: []
   }
 }
 
 exports.createTextNode = function (text) {
   return {
     nodeName: '#text',
-    value: text,
+    value: text
   }
 }
 
@@ -138,11 +138,11 @@ exports.setText = function (node, text) {
 }
 
 exports.isDocument = isDocument
-function isDocument(string) {
+function isDocument (string) {
   return /^\s*<(!doctype|html|head|body)\b/i.test(string)
 }
 
-exports.flatten = function flatten(node, arr) {
+exports.flatten = function flatten (node, arr) {
   arr = arr || []
 
   const children = Array.isArray(node)
