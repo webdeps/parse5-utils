@@ -9,7 +9,7 @@
     "parse5": "^2.2.1"
   },
   "devDependencies": {
-    "jest": "^15.1.1",
+    "jest": "^16.0.2",
     "standard": "^8.1.0"
   },
   "scripts": {
