@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "webdeps/parse5-utils",
   "dependencies": {
-    "parse5": "^2.2.1"
+    "parse5": "^3.0.0"
   },
   "devDependencies": {
     "jest": "^17.0.3",
