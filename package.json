@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "jest": "^19.0.2",
-    "standard": "^8.1.0"
+    "standard": "^10.0.0"
   },
   "scripts": {
     "lint": "standard --fix 'lib/**/*.js'",
